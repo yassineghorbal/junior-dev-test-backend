@@ -24,6 +24,7 @@ $product->name = $data->name;
 $product->price = $data->price;
 $product->attribute = $data->attribute;
 $product->value = $data->value;
+$product->unit = $data->unit;
 $product->created_at = date('Y-m-d H:i:s');
 
 

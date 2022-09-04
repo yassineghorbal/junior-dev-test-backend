@@ -45,7 +45,8 @@ class Product
                 name = :name,
                 price = :price,
                 attribute = :attribute,
-                value = :value';
+                value = :value,
+                unit= :unit';
 
         // prepare statement
         $stmt = $this->conn->prepare($query);
@@ -56,6 +57,7 @@ class Product
         $this->price = htmlspecialchars(strip_tags($this->price));
         $this->attribute = htmlspecialchars(strip_tags($this->attribute));
         $this->value = htmlspecialchars(strip_tags($this->value));
+        $this->unit = htmlspecialchars(strip_tags($this->unit));
 
         // bind data
         $stmt->bindParam(':sku', $this->sku);
@@ -63,6 +65,7 @@ class Product
         $stmt->bindParam(':price', $this->price);
         $stmt->bindParam(':attribute', $this->attribute);
         $stmt->bindParam(':value', $this->value);
+        $stmt->bindParam(':unit', $this->unit);
 
         // execute query
         if ($stmt->execute()) {

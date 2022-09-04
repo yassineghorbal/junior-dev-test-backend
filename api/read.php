@@ -35,6 +35,7 @@ if ($count > 0) {
             'price' => $price,
             'attribute' => html_entity_decode($attribute),
             'value' => html_entity_decode($value),
+            'unit' => html_entity_decode($unit),
         );
 
         // push to 'data'
