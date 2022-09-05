@@ -81,7 +81,7 @@ class Product
     // delete
     public function delete()
     {
-        $query = 'DELETE FROM ' . $this->table . ' WHERE id IN (:id)';
+        $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
         // prepare statement
         $stmt = $this->conn->prepare($query);
 
