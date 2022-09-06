@@ -1,5 +1,5 @@
 <?php
-
+// Headers
 require '../config/headers.php';
 
 include_once '../config/Database.php';
