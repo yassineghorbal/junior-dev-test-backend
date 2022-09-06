@@ -1,11 +1,6 @@
 <?php
 class Database
 {
-    //DB Params
-    // private $host = 'localhost';
-    // private $db_name = 'junior-dev-test';
-    // private $username = 'root';
-    // private $password = '';
     private $conn;
 
     // DB Connection
