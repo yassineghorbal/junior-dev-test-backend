@@ -18,15 +18,22 @@ $product = new Product($db);
 // Get raw posted data
 $data = json_decode(file_get_contents("php://input"));
 
-$product->id = $data->id;
+if (!empty($data->id)) {
+    $product->id = $data->id;
 
-// delete product
-if ($product->delete()) {
-    echo json_encode(
-        array('messeage' => 'Product deleted')
-    );
+    // delete product
+    if ($product->delete()) {
+        http_response_code(200);
+        echo json_encode(
+            array('messeage' => 'Product deleted')
+        );
+    } else {
+        http_response_code(503);
+        echo json_encode(
+            array('messeage' => 'Product not deleted')
+        );
+    }
 } else {
-    echo json_encode(
-        array('messeage' => 'Product not deleted')
-    );
+    http_response_code(400);
+    echo json_encode(array("message" => "Unable to delete product. Data is incomplete."));
 }

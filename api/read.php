@@ -44,9 +44,11 @@ if ($count > 0) {
     }
 
     // turn into json & output
+    http_response_code(200);
     echo json_encode($products_arr);
 } else {
     // no products
+    http_response_code(404);
     echo json_encode(
         array('message' => 'no products')
     );
